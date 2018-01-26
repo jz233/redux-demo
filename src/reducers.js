@@ -37,7 +37,9 @@ function todoApp(state = initialState, action){
         todos:
           state.todos.map((todo, index) => {
             if(index === action.index){
-              completed = !todo.completed
+              return Object.assign({}, todo, {
+                completed = !todo.completed
+              })
             }
             return todo
           })
